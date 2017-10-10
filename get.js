@@ -3,7 +3,7 @@ import { success, failure } from './libs/response-lib';
 
 export async function main(event, context, callback) {
     const params = {
-        TableName: 'notes',
+        TableName: "notes",
 
         Key: {
             userId: event.requestContext.identity.cognitoIdentityId,
@@ -12,11 +12,11 @@ export async function main(event, context, callback) {
     };
 
     try {
-        const result = await dynamoDbLib.call('get', params);
+        const result = await dynamoDbLib.call("get", params);
         if (result.Item) {
             callback(null, success(result.Item));
         } else {
-            callback(null, failure({ status: false, error: 'Item not found' }));
+            callback(null, failure({ status: false, error: "Item not found" }));
         }
     } catch (e) {
         callback(null, failure({ status: false }));
