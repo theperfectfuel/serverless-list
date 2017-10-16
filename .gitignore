@@ -1,6 +1,11 @@
+#Including this line to make sure it does not get loaded to Github
+
 # package directories
 node_modules
 jspm_packages
 
 # Serverless directories
 .serverless
+
+#Config files
+serverless.yml
